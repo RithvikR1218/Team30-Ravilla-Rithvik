@@ -11,6 +11,8 @@ public class PlayerDash : MonoBehaviour
     public float dashDuration = 0.12f;
 
     public bool IsDashing => dashTimer > 0f;
+    // True while the current dash came from two Perfect presses (only these break blue enemies)
+    public bool IsPerfectDash => IsDashing && perfectDash;
     // True after a successful first press, waiting for the second press on the next beat
     public bool IsCharged => chargedBeat != NoCharge;
 
@@ -21,6 +23,7 @@ public class PlayerDash : MonoBehaviour
     private float normalGravity;
     private float dashTimer;
     private float dashSpeed;
+    private bool perfectDash;
     private int chargedBeat = NoCharge;
     private Accuracy chargedTier;
 
@@ -34,11 +37,29 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        // Judge in Update so the press is timed on the exact frame it happened
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && !IsDashing && TimingJudge.Instance != null)
+        TimingJudge judge = TimingJudge.Instance;
+        if (judge == null) return;
+
+        // Drop the charge once the next beat's window has passed, so the UI doesn't show a stale charge
+        if (IsCharged && judge.Conductor != null)
         {
-            HandlePress(TimingJudge.Instance.Judge());
+            double chargeExpires = judge.Conductor.DspTimeOfBeat(chargedBeat + 1) + judge.GoodWindow + judge.InputLatency;
+            if (judge.Conductor.Now > chargeExpires) chargedBeat = NoCharge;
         }
+
+        // Judge in Update so the press is timed on the exact frame it happened
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame && !IsDashing)
+        {
+            HandlePress(judge.Judge());
+        }
+    }
+
+    // Cancels an active dash and any stored charge, e.g. when the player respawns
+    public void ResetDash()
+    {
+        if (IsDashing) rb.gravityScale = normalGravity;
+        dashTimer = 0f;
+        chargedBeat = NoCharge;
     }
 
     // Dash takes two on-beat presses in a row: the first charges it, the second on the next beat fires it
@@ -55,7 +76,7 @@ public class PlayerDash : MonoBehaviour
         {
             // Perfect dash only if both presses were Perfect
             bool bothPerfect = chargedTier == Accuracy.Perfect && judgement.Tier == Accuracy.Perfect;
-            StartDash(bothPerfect ? perfectDashDistance : goodDashDistance);
+            StartDash(bothPerfect);
             chargedBeat = NoCharge;
             return;
         }
@@ -79,8 +100,10 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
-    private void StartDash(float distance)
+    private void StartDash(bool perfect)
     {
+        perfectDash = perfect;
+        float distance = perfect ? perfectDashDistance : goodDashDistance;
         dashSpeed = movement.FacingDirection * distance / dashDuration;
         dashTimer = dashDuration;
         rb.gravityScale = 0f;

@@ -29,6 +29,15 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, GetTargetPosition(), ref velocity, smoothTime);
     }
 
+    // Jump straight to the target with no smoothing, e.g. after the player respawns
+    public void SnapToTarget()
+    {
+        if (target == null) return;
+
+        transform.position = GetTargetPosition();
+        velocity = Vector3.zero;
+    }
+
     private Vector3 GetTargetPosition()
     {
         Vector2 pos = (Vector2)target.position + offset;

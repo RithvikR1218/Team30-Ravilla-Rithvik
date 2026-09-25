@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 8f;
     public float jumpForce = 8f;
 
+    // Extra gravity while falling so jumps come down faster than they go up (1 = no extra)
+    public float fallGravityMultiplier = 2.5f;
+    public float maxFallSpeed = 20f;
+
     //Ground check to avoid infinite looping
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
@@ -33,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = 0f;
+        if (Keyboard.current == null) return;
+
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) horizontalInput -= 1f;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) horizontalInput += 1f;
         if (horizontalInput != 0f) FacingDirection = horizontalInput;
@@ -62,6 +68,13 @@ public class PlayerMovement : MonoBehaviour
         // Ride along with a moving platform we're standing on
         Vector2 platformVelocity = currentPlatform != null ? currentPlatform.Velocity : Vector2.zero;
         float yVelocity = rb.linearVelocity.y;
+
+        // Fall faster than we rise, and cap the fall speed
+        if (!isGrounded && yVelocity < 0f)
+        {
+            yVelocity += Physics2D.gravity.y * rb.gravityScale * (fallGravityMultiplier - 1f) * Time.fixedDeltaTime;
+            yVelocity = Mathf.Max(yVelocity, -maxFallSpeed);
+        }
 
         // Match the platform's vertical motion unless we're jumping off it
         if (currentPlatform != null && yVelocity <= platformVelocity.y + 0.1f)
