@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 8011991804688711032}
   - component: {fileID: 5563598100816711423}
   - component: {fileID: 7423819739317555884}
+  - component: {fileID: 7151340643730769070}
+  - component: {fileID: 5858162201658242377}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -214,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 8
-  jumpForce: 12
+  jumpForce: 8
   groundCheck: {fileID: 4471508699411751868}
   groundCheckRadius: 0.2
   groundLayer:
@@ -259,3 +261,30 @@ MonoBehaviour:
   flashDuration: 0.15
   flashDiameter: 2.8
   sortingOrder: 50
+--- !u!114 &7151340643730769070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045399334849665140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8187bb531f29604c82834dcb42a4eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 5
+  invincibleTime: 1
+--- !u!114 &5858162201658242377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045399334849665140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edad2105708e1848b3c8e8b5f96bbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  fallDeathY: -10
