@@ -153,7 +153,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlueEnemy
   blockedFlashColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.12
-  hurtsOnTouch: 0
-  touchDamage: 1
-  shove: {x: 7, y: 1.5}
-  shoveTime: 0.25

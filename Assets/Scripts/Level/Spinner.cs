@@ -2,14 +2,15 @@ using BeatTiming;
 using UnityEngine;
 
 // Spins an object around its Z axis (e.g. a saw blade's sprite).
-// While the beat is running it whirls round on each beat and slows down in between,
+// With spinOnBeat, while the beat is running it whirls round on each beat and slows down in between,
 // so the spin ticks with the music.
 public class Spinner : MonoBehaviour
 {
-    // Degrees per second when there's no beat; negative spins clockwise
+    // Degrees per second when not spinning on the beat; negative spins clockwise
     public float speed = -360f;
 
-    public bool spinOnBeat = true;
+    // Off by default so existing saws spin as before; Level 2's saws turn it on
+    public bool spinOnBeat = false;
     // How far it turns each beat; negative spins clockwise
     public float degreesPerBeat = -180f;
     // Share of the beat spent turning (the rest it holds still)

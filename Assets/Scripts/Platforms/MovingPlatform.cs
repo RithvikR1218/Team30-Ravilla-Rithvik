@@ -10,7 +10,8 @@ public class MovingPlatform : MonoBehaviour
 
     // Lock the platform to the beat: it steps along once per beat and pauses on each beat.
     // The trip and the wait are rounded to whole beats from speed and waitTime, so it keeps about the same pace.
-    public bool syncToBeat = true;
+    // Off by default so existing platforms move as before; Level 2's ferries turn it on.
+    public bool syncToBeat = false;
 
     // Share of each beat spent moving while stepping (the rest it pauses)
     private const float StepMoveFraction = 0.6f;
