@@ -487,18 +487,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava
       objectReference: {fileID: 0}
-    - target: {fileID: 8279167535345342902, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8641832862324566957, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8279167535345342902, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
-      propertyPath: surgeBeat
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 710282600}
   m_SourcePrefab: {fileID: 100100000, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
 --- !u!4 &136372301 stripped
 Transform:
@@ -895,14 +894,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava_2
       objectReference: {fileID: 0}
-    - target: {fileID: 8279167535345342902, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8641832862324566957, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829436003}
   m_SourcePrefab: {fileID: 100100000, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
 --- !u!4 &235175564 stripped
 Transform:
@@ -1171,14 +1173,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava_3
       objectReference: {fileID: 0}
-    - target: {fileID: 8279167535345342902, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8641832862324566957, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 520711545}
   m_SourcePrefab: {fileID: 100100000, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
 --- !u!4 &290790168 stripped
 Transform:
@@ -1862,6 +1867,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4651522539101230435, guid: b33b0872ab6089440b26d7dcbac247f9, type: 3}
   m_PrefabInstance: {fileID: 515190600}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &520711540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+  m_PrefabInstance: {fileID: 290790167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &520711545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520711540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b1f544809a83e4292b48f57b854ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaSurge
+  beatsPerBar: 4
+  surgeBeat: 0
+  surgeHeight: 2
+  surgeSpread: 0.75
+  riseBeats: 0.15
+  holdBeats: 0.5
+  fallBeats: 0.35
+  warnColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  surgeColor: {r: 1, g: 0.25, b: 0.05, a: 1}
+  deadlyFrom: 0.3
 --- !u!1001 &528218002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1931,6 +1963,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 936158284086080717, guid: 65f43fd4e309a5b46bcc418dd6fb6b39, type: 3}
   m_PrefabInstance: {fileID: 528218002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &549246091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+  m_PrefabInstance: {fileID: 1958704774}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &553782024
 PrefabInstance:
@@ -2305,6 +2342,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 762555548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &710282595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+  m_PrefabInstance: {fileID: 136372300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &710282600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710282595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b1f544809a83e4292b48f57b854ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaSurge
+  beatsPerBar: 4
+  surgeBeat: 2
+  surgeHeight: 2
+  surgeSpread: 0.75
+  riseBeats: 0.15
+  holdBeats: 0.5
+  fallBeats: 0.35
+  warnColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  surgeColor: {r: 1, g: 0.25, b: 0.05, a: 1}
+  deadlyFrom: 0.3
 --- !u!1 &715475261
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,6 +5269,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4651522539101230435, guid: b33b0872ab6089440b26d7dcbac247f9, type: 3}
   m_PrefabInstance: {fileID: 1827156934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1829435998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+  m_PrefabInstance: {fileID: 235175563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829436003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829435998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b1f544809a83e4292b48f57b854ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaSurge
+  beatsPerBar: 4
+  surgeBeat: 0
+  surgeHeight: 2
+  surgeSpread: 0.75
+  riseBeats: 0.15
+  holdBeats: 0.5
+  fallBeats: 0.35
+  warnColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  surgeColor: {r: 1, g: 0.25, b: 0.05, a: 1}
+  deadlyFrom: 0.3
 --- !u!1001 &1854977925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5393,20 +5484,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava_1
       objectReference: {fileID: 0}
-    - target: {fileID: 8279167535345342902, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8641832862324566957, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1359153981229881905, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958704780}
   m_SourcePrefab: {fileID: 100100000, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
 --- !u!4 &1958704775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1170837821099617283, guid: 30b5fd29932aaa441b37be8fb63d5812, type: 3}
   m_PrefabInstance: {fileID: 1958704774}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1958704780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549246091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b1f544809a83e4292b48f57b854ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaSurge
+  beatsPerBar: 4
+  surgeBeat: 0
+  surgeHeight: 2
+  surgeSpread: 0.75
+  riseBeats: 0.15
+  holdBeats: 0.5
+  fallBeats: 0.35
+  warnColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  surgeColor: {r: 1, g: 0.25, b: 0.05, a: 1}
+  deadlyFrom: 0.3
 --- !u!1001 &2015437770
 PrefabInstance:
   m_ObjectHideFlags: 0
