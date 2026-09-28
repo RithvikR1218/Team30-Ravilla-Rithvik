@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 1271892068226176290}
   - component: {fileID: 6438583505438312352}
   - component: {fileID: 7966176805563496559}
+  - component: {fileID: 6279756214224796962}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -493,6 +494,19 @@ MonoBehaviour:
   heartEmptyColor: {r: 0.25, g: 0.25, b: 0.28, a: 0.8}
   chargedIndicator: {fileID: 5210135189195444157}
   chargedPulseSpeed: 10
+--- !u!114 &6279756214224796962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448704913716784800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4245da0b18857a745823f0528490cb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackToMenu
+  menuScene: MainMenu
 --- !u!1 &7228310718127007853
 GameObject:
   m_ObjectHideFlags: 0

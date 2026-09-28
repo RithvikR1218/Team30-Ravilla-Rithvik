@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8641832862324566957}
   - component: {fileID: 4810910361978841363}
   - component: {fileID: 4261113548497660600}
+  - component: {fileID: 8279167535345342902}
   m_Layer: 6
   m_Name: Hazard_Lava
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.42, b: 0.1, a: 1}
@@ -152,3 +153,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
   damage: 1
+  killInstantly: 1
+--- !u!114 &8279167535345342902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359153981229881905}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b1f544809a83e4292b48f57b854ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LavaSurge
+  beatsPerBar: 4
+  surgeBeat: 0
+  surgeHeight: 2
+  surgeSpread: 0.75
+  riseBeats: 0.15
+  holdBeats: 0.5
+  fallBeats: 0.35
+  warnColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  surgeColor: {r: 1, g: 0.25, b: 0.05, a: 1}
+  deadlyFrom: 0.3
