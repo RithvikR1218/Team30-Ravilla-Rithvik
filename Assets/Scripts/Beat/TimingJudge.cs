@@ -31,6 +31,7 @@ namespace BeatTiming
     /// Gameplay code calls Judge() when the ability is pressed and reacts to the result
     /// (or listens to OnJudged).
     /// </summary>
+    [DefaultExecutionOrder(-90)]
     public class TimingJudge : MonoBehaviour
     {
         public static TimingJudge Instance { get; private set; }
@@ -60,7 +61,8 @@ namespace BeatTiming
 
         void Awake()
         {
-            if (Instance == null) Instance = this;
+            // The newest one wins (see BeatConductor.Awake): the previous scene's judge may not be destroyed yet
+            Instance = this;
             if (conductor == null) conductor = GetComponent<BeatConductor>();
             if (conductor == null) conductor = BeatConductor.Instance;
         }

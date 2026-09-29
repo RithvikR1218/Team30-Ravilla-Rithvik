@@ -79,11 +79,8 @@ namespace BeatTiming
 
         void Awake()
         {
-            if (Instance != null && Instance != this)
-            {
-                Debug.LogWarning("More than one BeatConductor in the scene; using the first one.", this);
-                return;
-            }
+            // The newest one wins: when a scene loads, its objects wake up before the previous
+            // scene's are destroyed, so the menu's (or last level's) conductor may still be here.
             Instance = this;
             lastRawDsp = AudioSettings.dspTime;
             clockOffset = lastRawDsp - Time.timeAsDouble;
